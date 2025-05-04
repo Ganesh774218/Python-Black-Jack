@@ -1,0 +1,35 @@
+Python Black Jack
+Modules and Classes - 
+The code begins by importing the random module, which is used to shuffle the deck of cards. Two lists, (suits) and (ranks), are defined to represent the categories and values of cards, respectively.
+
+Two classes are defined - 
+1) Card Class - 
+  The Card class represents a single card in the deck.
+  It has two attributes: suit and rank, which are initialized through the __init__ method.
+  The __str__ method returns a string representation of the card, e.g., "Ace of Hearts".
+2) Deck Class - 
+  The Deck class represents a deck of cards.
+  0In the __init__ method, a list of Card objects is created using a list comprehension, covering all possible combinations of suits and ranks.
+  The random.shuffle function is used to randomize the order of the cards in the deck.
+  The draw method removes and returns the top card from the deck. If the deck is empty, it returns None.
+
+Functions - 
+Three functions are defined:
+1) calculate_hand_value Function - 
+  This function calculates the total value of a given hand of cards.
+  It iterates through the cards in the hand, adding their values to a running total.
+  For cards with ranks "Jack", "Queen", and "King", the value is 10.
+  For "Ace", the value is initially not added. Instead, the number of aces is counted.
+  After processing all cards, the function adjusts the total value based on the number of aces. If adding 11 to the total value for an ace would not exceed 21, it adds 11; otherwise, it adds 1.
+
+2) play_blackjack Function - 
+  This function simulates a game of Blackjack.
+  It creates a new Deck object and deals two cards to both the player and the dealer.
+  The function then enters a loop where the player can choose to either "hit" (draw another card) or "stand" (stop drawing cards).
+  If the player's hand value exceeds 21, they immediately lose the game.
+  After the player's turn, the dealer's turn begins. The dealer draws cards until their hand value is 17 or higher.
+  Finally, the function compares the player's and dealer's hand values to determine the winner.
+
+3) Main Execution - 
+  The code checks if it's being run as the main module (if __name__ == "__main__":).
+  If so, it enters a loop where it repeatedly calls the play_blackjack function to play games until the user chooses to stop.
